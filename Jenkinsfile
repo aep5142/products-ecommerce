@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             agent { docker { image 'python:3.11-slim' } }
             steps {
-                echo 'Entering Build Stage...'
+                echo 'Entering Build Stage.'
                 sh 'pip install -r requirements.txt'
                 echo 'Installed dependencies - Successful'
                 sh 'ruff check . --fix'
