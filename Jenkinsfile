@@ -35,7 +35,7 @@ pipeline {
         stage('Security') {
             agent { docker { image 'python:3.11-slim' } }
             steps {
-                echo 'Entering Security Scan...'
+                echo 'Entering Security Scan..'
                 sh '''
                     apt-get update && apt-get install -y curl
                     curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
