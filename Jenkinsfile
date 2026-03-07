@@ -29,6 +29,7 @@ pipeline {
         stage('Security') {
             steps {
                 sh '''
+                apt-get update && apt-get install -y curl
                 curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
                 trivy image aeyzaguirre/products-ecommerce:latest
                 '''
