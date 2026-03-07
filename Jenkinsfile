@@ -28,7 +28,10 @@ pipeline {
         // Build Stage
         stage('Security') {
             steps {
-                sh 'trivy image aeyzaguirre/products-ecommerce:latest'
+                sh '''
+                curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+                trivy image aeyzaguirre/products-ecommerce:latest
+                '''
             }
         }
 
