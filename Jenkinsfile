@@ -62,7 +62,7 @@ pipeline {
                               : 'staging'
                     def gitTag = "git-${env.GIT_COMMIT.take(7)}-${env.BUILD_NUMBER}"
 
-                    echo "Building image with tags: ${envTag}, ${gitTag}"
+                    echo "Building image with tags:: ${envTag}, ${gitTag}"
                     sh "docker build -t ${IMAGE}:${envTag} -t ${IMAGE}:${gitTag} ."
 
                     // Store tags for later stages
