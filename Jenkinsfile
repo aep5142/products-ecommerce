@@ -8,7 +8,7 @@ pipeline {
         // Build Stage
         stage('Build') {
             steps {
-                echo 'Entering Build Stage...'
+                echo 'Entering Build Stage..'
                 sh 'pip install -r requirements.txt'
                 echo 'Installed code - Successfull'
                 sh 'ruff check . --fix'
