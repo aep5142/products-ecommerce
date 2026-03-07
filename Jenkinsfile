@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             agent { docker { image 'python:3.11-slim' } }
             steps {
-                echo 'Entering Build Stage....'
+                echo 'Entering Build Stage.'
                 sh 'pip install -r requirements.txt'
                 echo 'Installed dependencies - Successful'
                 sh 'ruff check . --fix'
@@ -35,7 +35,7 @@ pipeline {
         stage('Security') {
             agent { docker { image 'python:3.11-slim' } }
             steps {
-                echo 'Entering Security Scan...'
+                echo 'Entering Security Scan..'
                 sh '''
                     apt-get update && apt-get install -y curl
                     curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
@@ -62,7 +62,7 @@ pipeline {
                               : 'staging'
                     def gitTag = "git-${env.GIT_COMMIT.take(7)}-${env.BUILD_NUMBER}"
 
-                    echo "Building image with tags: ${envTag}, ${gitTag}"
+                    echo "Building image with tags:: ${envTag}, ${gitTag}"
                     sh "docker build -t ${IMAGE}:${envTag} -t ${IMAGE}:${gitTag} ."
 
                     // Store tags for later stages
