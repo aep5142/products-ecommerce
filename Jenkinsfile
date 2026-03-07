@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Entering Build Stage..'
+                sh 'apt-get update && apt-get install -y python3-pip'
                 sh 'pip install -r requirements.txt'
                 echo 'Installed code - Successfull'
                 sh 'ruff check . --fix'
