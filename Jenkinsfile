@@ -19,7 +19,7 @@ pipeline {
         // Build Stage
         stage('Test') {
             steps {
-                echo 'Entering Test Stage'
+                echo 'Entering Test Stage.'
                 sh 'pytest tests/'
                 echo 'Tests: Success'
             }
