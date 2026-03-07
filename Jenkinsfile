@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             agent { docker { image 'python:3.11-slim' } }
             steps {
-                echo 'Entering Build Stage...'
+                echo 'Entering Build Stage....'
                 sh 'pip install -r requirements.txt'
                 echo 'Installed dependencies - Successful'
                 sh 'ruff check . --fix'
@@ -147,7 +147,7 @@ pipeline {
                     docker stop products-prod || true
                     docker rm products-prod || true
                     docker run -d --name products-prod --network ecomm-net \\
-                        -p 3001:3001 \\
+                        -p 3002:3001 \\
                         -e DB_HOST=db \\
                         -e DB_USER=postgres \\
                         -e DB_PASSWORD=password \\
