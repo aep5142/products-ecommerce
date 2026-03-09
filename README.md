@@ -1,6 +1,6 @@
 #Init Readme
 
-## Running Tests
+## Running Tests:
 
 Install dependencies and run the tests:
 
